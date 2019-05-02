@@ -1,4 +1,4 @@
-class CharacterEventsJoinTable < ActiveRecord::Migration
+class CharacterEvent < ActiveRecord::Migration
   def change
     create_table do |t|
       t.integer :char_id
