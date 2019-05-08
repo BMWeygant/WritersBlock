@@ -4,7 +4,7 @@ class CreateStories < ActiveRecord::Migration
       t.string :title
       t.string :genre
       t.text :synopsis
-      t.integer :writer_id
+      t.integer :user_id
     end
   end
 end

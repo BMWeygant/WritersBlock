@@ -1,0 +1,10 @@
+<h1>WTF Is Happening Right Now!?!?</h1>
+
+"Welcome, <%=@user.name%>!"
+<%= @stories.each do |story| %>
+<%= story.title %><br>
+<% end %>
+<br><br>
+<a href="/characters">Characters</a><br><br>
+<a href="/events">Events</a><br><br>
+<a href="/logout">Log Out</a>

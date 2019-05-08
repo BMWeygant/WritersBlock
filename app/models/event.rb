@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
-  belongs_to :stories
-  belongs_to :writers, through: :stories
-  has_many :characters, through: :stories
+  belongs_to :story
+  
+
+
+  #validates_presence_of :event_name
 end

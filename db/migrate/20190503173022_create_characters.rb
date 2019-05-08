@@ -5,7 +5,7 @@ class CreateCharacters < ActiveRecord::Migration
       t.string :role
       t.text :biography
       t.integer :story_id
-      t.integer :writer_id
+      t.integer :user_id
     end
   end
 end
