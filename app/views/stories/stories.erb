@@ -1,5 +1,15 @@
-<h1>"Welcome, <%=@user%>!"</h1>
+<h1>Welcome, <%=@current_user.username%></h1>
 
+<h4>Below are all the projects you have previously created:</h4><br><br>
+<ul>
+
+<%@stories.each do |story|%>
+<a href="/stories/<%=story.id%>"><%=story.title%></a><br>
+<%end%>
+
+</ul>
+
+<h4>Or click a link below</h4>
 <a href="/stories/new">New Story</a><br><br>
 <a href="/characters">Characters</a><br><br>
 <a href="/events">Events</a><br><br>

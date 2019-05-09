@@ -1,8 +1,8 @@
 <h1>Create New Story Here!</h1>
 
 <form method="POST" action="/stories/new">
-  <input type="text" name="title" placeholder="Title">
-  <input type="text" name="genre" placeholder="Genre">
-  <input type="text" name="synopsis" placeholder="Story Synopsis">
+  <input type="text" name="title" placeholder="Title" required><br><br>
+  <input type="text" name="genre" placeholder="Genre" required><br><br>
+  <textarea name="synopsis" rows="10" cols="80" placeholder="Story Synopsis"></textarea>
 <button type="submit" id="submit">submit</button>
 </form>

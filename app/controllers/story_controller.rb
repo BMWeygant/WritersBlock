@@ -22,7 +22,8 @@ class StoryController < ApplicationController
       if params[:title] == "" || params[:genre] == "" || params[:synopsis] == ""
         redirect to '/stories/new'
       else
-        @story = current_user.stories.build(title: params[:title])
+        @story = Story.create(title: params[:title], genre: params[:genre], synopsis: params[:synopsis])
+        #binding.pry
         if @story.save
           redirect to "/stories/#{@story.id}"
         else
