@@ -44,7 +44,7 @@ class StoryController < ApplicationController
 
   get '/stories/:id/edit' do
     @story = Story.find_by_id(params[:id])
-      if logged_in? && @story.user_id == @current_user.id
+      if logged_in? && @story.user_id == current_user.id
         erb :'stories/edit_story'
       else
         erb :'stories/edit_story'
@@ -53,8 +53,10 @@ class StoryController < ApplicationController
 
   patch '/stories/:id' do
     @story = Story.find_by(id: params[:id])
-    @story.update(params[:story])
-
+    @story.title = params[:title]
+    @story.genre = params[:genre]
+    @story.synopsis = params[:synopsis]
+    @story.save
     redirect to "/stories/#{@story.id}"
   end
 
@@ -68,12 +70,10 @@ class StoryController < ApplicationController
   end
 
   delete '/stories/:id'do
-    @story = Story.find_by_id(params[:id])
-
-      if logged_in? && @story.user_id == current_user.id
+    @story = Story.find_by(id: params[:id])
         @story.destroy
-      end
-      erb :'stories/stories'
+
+      redirect '/stories'
     end
 
 end
