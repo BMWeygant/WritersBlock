@@ -1,0 +1,12 @@
+
+
+<h1><%=@story.title%></h1>
+<h3><%=@story.genre%></h3><br><br><br>
+<p><strong>Story Synopsis:</strong> <%=@story.synopsis%></p>
+<form method="POST" action="/stories/<%=@story.id%>">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="DELETE">
+</form>
+<br><br>
+<a href="/stories/<%=@story.id%>/edit">Edit</a><br><br>
+<a href="/stories">All Stories</a>

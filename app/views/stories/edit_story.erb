@@ -1,0 +1,11 @@
+<h1>Edit "<%=@story.title%>"</h1>
+<form method="POST" action="/stories/<%= @story.id %>">
+    <input id="hidden" type="hidden" name="_method" value="patch" />
+    <label>Title:</label> <input name="title" type="text" value="<%= @story.title%>"><br><br>
+    <label>Genre:</label> <input name="genre" type="text" value="<%= @story.genre%>"><br><br>
+    <label>Story Synopsis:</label> <br><textarea name="synopsis" rows="10" cols="80"><%= @story.synopsis%></textarea>
+    <input type="submit" value="Update">
+</form>
+<br>
+<a href="/stories/<%=@story.id%>">Go Back</a><br><br>
+<a href="/stories">All Stories</a>
