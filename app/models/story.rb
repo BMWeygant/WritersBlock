@@ -3,5 +3,5 @@ class Story < ActiveRecord::Base
   has_many :characters
   has_many :events
 
-#  validates_presence_of :title
+  #validates_presence_of :user_id
 end

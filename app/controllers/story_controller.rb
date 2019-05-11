@@ -3,6 +3,7 @@ class StoryController < ApplicationController
   get '/stories' do
       if logged_in?
         @stories = Story.all
+        #binding.pry
         erb :'stories/stories'
       else
         redirect to '/login'
@@ -22,13 +23,10 @@ class StoryController < ApplicationController
       if params[:title] == "" || params[:genre] == "" || params[:synopsis] == ""
         redirect to '/stories/new'
       else
-        @story = Story.create(title: params[:title], genre: params[:genre], synopsis: params[:synopsis])
+        @story = current_user.stories.create(title: params[:title], genre: params[:genre], synopsis: params[:synopsis])
         #binding.pry
-        if @story.save
-          redirect to "/stories/#{@story.id}"
-        else
-
-        end
+         #@story.save
+        erb :'stories/show_story'
       end
     end
   end
@@ -36,6 +34,7 @@ class StoryController < ApplicationController
   get '/stories/:id' do
     if logged_in?
       @story = Story.find_by_id(params[:id])
+      #binding.pry
       erb :'stories/show_story'
     else
       redirect to '/login'
@@ -47,7 +46,7 @@ class StoryController < ApplicationController
       if logged_in? && @story.user_id == current_user.id
         erb :'stories/edit_story'
       else
-        erb :'stories/edit_story'
+        erb :'stories/stories'
       end
   end
 

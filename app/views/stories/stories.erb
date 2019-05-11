@@ -4,7 +4,9 @@
 <ul>
 
 <%@stories.each do |story|%>
+<%if story.user_id == current_user.id%>
 <h3><a href="/stories/<%=story.id%>"><%=story.title%></a><br></h3>
+<%end%>
 <%end%>
 
 </ul>

@@ -3,7 +3,7 @@
 <h1><%=@story.title%></h1>
 <h3><%=@story.genre%></h3><br><br><br>
 <p><strong>Story Synopsis:</strong> <%=@story.synopsis%></p>
-<%if @story.user_id == session[:user_id]%><form method="POST" action="/stories/<%=@story.id%>">
+<%if @story.user_id = session[:user_id]%><form method="POST" action="/stories/<%=@story.id%>">
     <input type="hidden" name="_method" value="DELETE">
     <input type="submit" value="DELETE">
 </form>
