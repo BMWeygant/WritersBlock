@@ -12,10 +12,10 @@ class UserController < ApplicationController
     user = User.all.find{|user| user.username == params[:username]}
     user ||= User.all.find{|user| user.email == params[:email]}
     if user
-      #raise  "That username already exists. Please try again."
+      @error_message =  "That username or email already exists. Please try again."
       erb :'users/signup'
     elsif params[:password] != params[:password1]
-      #raise  "Passwords do not match. Please .try again."
+      @error_message = "Passwords do not match. Please .try again."
       erb :'users/signup'
     else
       @user = User.create(username: params[:username], email: params[:email], password: params[:password])
@@ -38,7 +38,8 @@ post '/login' do
       session[:user_id] = @user[:id]
       redirect '/stories'
     else
-      erb :'/login'
+      @error_message = "The username and/or password you entered is incorrect. Please try again."
+      erb :'users/login'
   end
 end
 
